@@ -16,8 +16,8 @@ class SentMemesTableViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     // Do any additional setup after loading the view, typically from a nib.
-    //self.memeTableView.registerClass(SentMemeTableViewCell.self, forCellReuseIdentifier: "SentMemeTableCell")
     memeTableView.registerNib(UINib(nibName: "memeTableViewCell", bundle: nil), forCellReuseIdentifier: "tableCell")
 
   }
@@ -57,6 +57,14 @@ extension SentMemesTableViewController: UITableViewDelegate {
 
 // MARK: UITableViewDataSource methods
 extension SentMemesTableViewController: UITableViewDataSource {
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 0
+  }
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return memes.count
   }

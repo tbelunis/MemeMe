@@ -39,16 +39,13 @@ class MemeEditorViewController: UIViewController {
     bottomTextField.defaultTextAttributes = memeTextAttributes
     bottomTextField.textAlignment = NSTextAlignment.Center
     bottomTextField.delegate = self
-    
-    if let meme = meme {
-      imageView.image = meme.originalImage
-      topTextField.text = meme.topText
-      bottomTextField.text = meme.bottomText
-      topTextField.enabled = false
-      bottomTextField.enabled = false
-      cameraButton.enabled = false
-      albumButton.enabled = false
-    }
+    bottomTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.subscribeToKeyboardNotifications()
   }
   
   override func didReceiveMemoryWarning() {
@@ -77,6 +74,38 @@ class MemeEditorViewController: UIViewController {
   
   func textFieldDidChange(textField: UITextField) {
     textField.text = textField.text.uppercaseString
+  }
+  
+  func subscribeToKeyboardNotifications() {
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+  }
+
+  func unsubscribeFromKeyboardNotifications() {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
+  func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+    let userInfo = notification.userInfo
+    let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+    return keyboardSize.CGRectValue().height
+  }
+  
+  func keyboardWillShow(notification: NSNotification) {
+    if bottomTextField.isFirstResponder() {
+      self.view.frame.origin.y -= getKeyboardHeight(notification)
+    }
+  }
+  
+  func keyboardWillHide(notification: NSNotification) {
+    if bottomTextField.isFirstResponder() {
+      self.view.frame.origin.y += getKeyboardHeight(notification)
+    }
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    self.unsubscribeFromKeyboardNotifications()
   }
   
   // MARK: IBActions
