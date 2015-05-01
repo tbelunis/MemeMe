@@ -100,21 +100,11 @@
 			children = (
 				E208F4911AE944E2009701D8 /* Model */,
 				E208F4711AE943A3009701D8 /* AppDelegate.swift */,
-				E208F4731AE943A3009701D8 /* SentMemesTableViewController.swift */,
-				E208F4751AE943A3009701D8 /* Main.storyboard */,
+				E2C2F24F1AF41D9500C67245 /* Controller */,
+				E2C2F24E1AF41D7400C67245 /* View */,
 				E208F4781AE943A3009701D8 /* Images.xcassets */,
-				E208F47A1AE943A3009701D8 /* LaunchScreen.xib */,
 				E208F46F1AE943A3009701D8 /* Supporting Files */,
-				E208F4941AE958F0009701D8 /* MemeTableViewCell.swift */,
 				E208F4961AE95E4D009701D8 /* MemePlayground.playground */,
-				E208F4971AEE9E6C009701D8 /* MemeEditorViewController.swift */,
-				E208F4991AEEAFA7009701D8 /* MemeMeTabBarControllerViewController.swift */,
-				E2C5570B1AF2EF5C00AE817D /* SentMemeTableViewCell.swift */,
-				E2C5570C1AF2EF5C00AE817D /* memeTableViewCell.xib */,
-				E2C2F2481AF3FE9E00C67245 /* MemeCollectionViewCell.xib */,
-				E2C5570F1AF30C8800AE817D /* MemeDetailViewController.swift */,
-				E2C2F24A1AF3FF4C00C67245 /* SentMemeCollectionViewCell.swift */,
-				E2C2F24C1AF4002300C67245 /* SentMemesCollectionViewController.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -150,6 +140,32 @@
 				E208F4921AE94501009701D8 /* Meme.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		E2C2F24E1AF41D7400C67245 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E208F4751AE943A3009701D8 /* Main.storyboard */,
+				E208F47A1AE943A3009701D8 /* LaunchScreen.xib */,
+				E208F4941AE958F0009701D8 /* MemeTableViewCell.swift */,
+				E2C5570C1AF2EF5C00AE817D /* memeTableViewCell.xib */,
+				E2C2F2481AF3FE9E00C67245 /* MemeCollectionViewCell.xib */,
+				E2C2F24A1AF3FF4C00C67245 /* SentMemeCollectionViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E2C2F24F1AF41D9500C67245 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E208F4731AE943A3009701D8 /* SentMemesTableViewController.swift */,
+				E208F4971AEE9E6C009701D8 /* MemeEditorViewController.swift */,
+				E208F4991AEEAFA7009701D8 /* MemeMeTabBarControllerViewController.swift */,
+				E2C5570B1AF2EF5C00AE817D /* SentMemeTableViewCell.swift */,
+				E2C5570F1AF30C8800AE817D /* MemeDetailViewController.swift */,
+				E2C2F24C1AF4002300C67245 /* SentMemesCollectionViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
