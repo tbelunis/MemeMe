@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1wM-SV-z9i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1wM-SV-z9i">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -37,6 +37,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="4EN-Fh-ckj">
+                        <barButtonItem key="leftBarButtonItem" title="Select" id="wMJ-l1-kop"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YeJ-Ov-n1K">
                             <connections>
                                 <action selector="addMeme:" destination="RpX-D2-hNE" id="eVZ-40-wgD"/>
@@ -67,7 +68,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="me4-jx-L3D">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="Jf5-re-BYU" customClass="SentMemeTableViewCell" customModule="MemeMe" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" editingAccessoryType="checkmark" id="Jf5-re-BYU" customClass="SentMemeTableViewCell" customModule="MemeMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jf5-re-BYU" id="Fk0-nU-gkz">
@@ -121,6 +122,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Sent Memes" id="WFw-p8-7C6">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="01F-51-hdq">
+                            <connections>
+                                <action selector="editSentMemes:" destination="vXZ-lx-hvc" id="7wS-WD-sFf"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Oh0-3j-dQU">
                             <connections>
                                 <action selector="addMeme:" destination="vXZ-lx-hvc" id="tRq-gk-Ieh"/>
@@ -128,6 +134,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editSentMemesButton" destination="01F-51-hdq" id="YJA-eN-zx6"/>
                         <outlet property="memeTableView" destination="me4-jx-L3D" id="s6R-UF-qRA"/>
                         <segue destination="nUw-Ys-IRv" kind="presentation" identifier="EditMeme" id="HrO-bl-3Fx"/>
                         <segue destination="6mD-Zw-Gpq" kind="show" identifier="ShowMemeDetail" id="g3s-AQ-vXj"/>
@@ -244,7 +251,7 @@
                                     <constraint firstAttribute="width" constant="600" id="C1V-Zd-RZA"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D8X-1f-AHw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D8X-1f-AHw">
                                 <rect key="frame" x="16" y="77" width="568" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -266,7 +273,7 @@
                                     <outlet property="delegate" destination="Wzg-MZ-6pJ" id="rgS-dn-1Qt"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-qh-bg4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-qh-bg4">
                                 <rect key="frame" x="16" y="519" width="568" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -422,7 +429,7 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HrO-bl-3Fx"/>
-        <segue reference="g3s-AQ-vXj"/>
+        <segue reference="K9R-M2-Lw1"/>
+        <segue reference="8Rc-3a-dif"/>
     </inferredMetricsTieBreakers>
 </document>

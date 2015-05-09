@@ -27,7 +27,7 @@ class MemeEditorViewController: UIViewController {
     let memeTextAttributes = [
       NSStrokeColorAttributeName : UIColor.blackColor(),
       NSForegroundColorAttributeName : UIColor.whiteColor(),
-      NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+      NSFontAttributeName : UIFont(name: "Impact", size: 40)!,
       NSStrokeWidthAttributeName : -5
     ]
     
@@ -124,14 +124,20 @@ class MemeEditorViewController: UIViewController {
   }
   
   @IBAction func shareMeme(sender: UIBarButtonItem) {
-    var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
+    let memedImage = generateMemedImage()
+    var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: memedImage)
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     appDelegate.memes.append(meme)
     
-    
-    self.dismissViewControllerAnimated(true, completion: nil)
-    
+    let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+    var shareError: NSError?
+    controller.completionWithItemsHandler = {(activityType, completed, returnedItems, error) in
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    self.presentViewController(controller, animated: true) {
+        
+    }
   }
   
   @IBAction func cancelEditor(sender: UIBarButtonItem) {

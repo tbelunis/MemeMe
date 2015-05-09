@@ -30,6 +30,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
     // Do any additional setup after loading the view.
     collectionView!.delegate = self
     collectionView!.dataSource = self
+    self.collectionView!.allowsMultipleSelection = true
   }
   
   override func didReceiveMemoryWarning() {

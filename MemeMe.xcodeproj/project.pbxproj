@@ -23,6 +23,7 @@
 		E2C5570D1AF2EF5C00AE817D /* SentMemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5570B1AF2EF5C00AE817D /* SentMemeTableViewCell.swift */; };
 		E2C5570E1AF2EF5C00AE817D /* memeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C5570C1AF2EF5C00AE817D /* memeTableViewCell.xib */; };
 		E2C557101AF30C8800AE817D /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5570F1AF30C8800AE817D /* MemeDetailViewController.swift */; };
+		E2F100B81AFE5F8F007413BB /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2F100B71AFE5F8F007413BB /* Impact.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E2C5570B1AF2EF5C00AE817D /* SentMemeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemeTableViewCell.swift; sourceTree = "<group>"; };
 		E2C5570C1AF2EF5C00AE817D /* memeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = memeTableViewCell.xib; sourceTree = "<group>"; };
 		E2C5570F1AF30C8800AE817D /* MemeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
+		E2F100B71AFE5F8F007413BB /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		E208F46F1AE943A3009701D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E2F100B71AFE5F8F007413BB /* Impact.ttf */,
 				E208F4701AE943A3009701D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -248,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F100B81AFE5F8F007413BB /* Impact.ttf in Resources */,
 				E208F4771AE943A3009701D8 /* Main.storyboard in Resources */,
 				E208F47C1AE943A3009701D8 /* LaunchScreen.xib in Resources */,
 				E208F4791AE943A3009701D8 /* Images.xcassets in Resources */,
