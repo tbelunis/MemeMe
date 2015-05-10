@@ -20,6 +20,7 @@ class MemeMeTabBarControllerViewController: UITabBarController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        // Present the MemeEditorViewController if there are no sent memes
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
         

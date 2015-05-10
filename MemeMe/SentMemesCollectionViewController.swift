@@ -20,17 +20,12 @@ class SentMemesCollectionViewController: UICollectionViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
-        // Register cell classes
-        // self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 120)
-        //    self.collectionView!.
+        // Register the nib for the custom UICollectionViewCell
         self.collectionView!.registerNib(UINib(nibName: "MemeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         
         // Do any additional setup after loading the view.
         collectionView!.delegate = self
         collectionView!.dataSource = self
-        self.collectionView!.allowsMultipleSelection = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,12 +35,16 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Get a copy of the memes array from the AppDelegate
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
         collectionView!.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // If we are performing the segue CollectionShowDetail, pass the selected
+        // meme object to the MemeDetailViewController
         if segue.identifier == "CollectionShowDetail" {
             let controller = segue.destinationViewController as! MemeDetailViewController
             let meme = sender as! Meme
@@ -76,6 +75,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        // Get a custom cell and populate it withe the memedImage
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SentMemeCollectionViewCell
         
         // Configure the cell
@@ -84,6 +84,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    // Segue to the MemeEditorViewController to add a new meme
     @IBAction func addMeme(sender: UIBarButtonItem) {
         performSegueWithIdentifier("AddMeme", sender: nil)
     }
@@ -136,7 +137,7 @@ extension SentMemesCollectionViewController:UICollectionViewDelegate {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        println("cell selected")
+        // Segue to the MemeDetailViewController when a cell is selected
         let meme = memes[indexPath.row]
         performSegueWithIdentifier("CollectionShowDetail", sender: meme)
     }
