@@ -214,7 +214,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="Wzg-MZ-6pJ">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="KRl-eU-hXO">
+                                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="action" id="KRl-eU-hXO">
                                             <connections>
                                                 <action selector="shareMeme:" destination="nUw-Ys-IRv" id="T46-jq-tja"/>
                                             </connections>
