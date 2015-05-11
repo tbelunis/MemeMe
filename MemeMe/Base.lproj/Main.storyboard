@@ -37,7 +37,6 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="4EN-Fh-ckj">
-                        <barButtonItem key="leftBarButtonItem" title="Select" id="wMJ-l1-kop"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YeJ-Ov-n1K">
                             <connections>
                                 <action selector="addMeme:" destination="RpX-D2-hNE" id="eVZ-40-wgD"/>
