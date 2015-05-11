@@ -21,38 +21,22 @@ class MemeEditorViewController: UIViewController {
     
     var meme: Meme?
     
+    // Set the text attributes for the top and bottom text fields
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "Impact", size: 40)!,
+        NSStrokeWidthAttributeName : -5
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
-        // Set the text attributes for the top and bottom text fields
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "Impact", size: 40)!,
-            NSStrokeWidthAttributeName : -5
-        ]
-        
-        // Set the attributes for topTextField
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = NSTextAlignment.Center
-    
-        // This class will implement the UITextFieldDelegate protocol
-        topTextField.delegate = self
-        
-        // Add a target to topTextField to handle the EditingChanged events
-        topTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
-        
-        // Set the attributes for bottomTextField
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.textAlignment = NSTextAlignment.Center
-        
-        // This class will implement the UITextFieldDelegate protocol
-        bottomTextField.delegate = self
-        
-        // Add a target to bottomTextField to handle the EditingChanged events
-        bottomTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        // Set up the text fields
+        prepareTextField(topTextField)
+        prepareTextField(bottomTextField)
         
     }
     
@@ -86,6 +70,18 @@ class MemeEditorViewController: UIViewController {
         navigationBar.hidden = false
         
         return memedImage
+    }
+    
+    func prepareTextField(textField: UITextField) {
+        // Set the text attributes
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = NSTextAlignment.Center
+        
+        // This class will implement the UITextFieldDelegate protocol
+        textField.delegate = self
+        
+        // Add a target to handle the EditingChanged events
+        textField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
     }
     
     // Handle the EditingChanged events for the textField and

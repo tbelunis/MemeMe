@@ -19,7 +19,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-f3-Mc6">
+                    <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="collection" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-f3-Mc6">
                         <rect key="frame" x="8" y="8" width="146" height="133"/>
                     </imageView>
                 </subviews>
@@ -31,4 +31,7 @@
             <point key="canvasLocation" x="485.5" y="378"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="collection" width="30" height="30"/>
+    </resources>
 </document>
